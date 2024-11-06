@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PorteriaGoal : MonoBehaviour
 {
+    public uint playerIndex;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +17,9 @@ public class PorteriaGoal : MonoBehaviour
         {
             ball.ResetPosition();
 
+            int currentScore= GameManager.instance.GetIndexPuntuacion((int)playerIndex);
 
+            GameManager.instance.SetIndexPuntuacion((int) playerIndex, currentScore+1);
 
         }
     }
