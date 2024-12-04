@@ -81,6 +81,7 @@ public class Ball : MonoBehaviour
     public float speed;
     private Vector2 direccion;
     private Vector2 direccionInicial;
+    public AudioClip pongAudioClip;
 
     // Velocidad mínima en el eje Y para evitar botes pequeños
     public float minYVelocity = 0.3f;
@@ -128,6 +129,8 @@ public class Ball : MonoBehaviour
             // Colisión con techo o suelo: invierte la dirección en Y (rebote vertical)
             direccion.y *= -1;
         }
+
+        AudioManager.instance.PlayAudio(pongAudioClip,"PongEffect", 0.3f);
 
         // Normaliza la dirección para mantener la velocidad constante
         direccion = direccion.normalized;
