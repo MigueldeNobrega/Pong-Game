@@ -7,6 +7,8 @@ public class ADManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
 {
 
     public static ADManager instance;
+    public string androidID, appleID;
+    public bool testMode = true;
 
     public void OnInitializationComplete()
     {
@@ -20,7 +22,7 @@ public class ADManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
 
     public void OnUnityAdsAdLoaded(string placementId)
     {
-        throw new System.NotImplementedException();
+        Advertisement.Show("Interstitial_Android", this);
     }
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message)
@@ -62,9 +64,28 @@ public class ADManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
         }
     }
 
-    // Update is called once per frame
-    void Update()
+
+    void Start()
     {
-        
+        if(!Advertisement.isInitialized)
+        {
+#if UNITY_EDITOR || UNITY_STANALONE ||  UNITY_ANDROID
+            Advertisement.Initialize(androidID, testMode, this);
+#elif UNITY_IOS
+            Advertisement.Initialize(androidID, testMode, this);
+#endif
+        }
     }
+
+public void ShowAd()
+    {
+        if (Advertisement.isInitialized)
+        {
+            Advertisement.Load("Interstitial_Android", this);
+
+        }
+    }
+
+
+    
 }

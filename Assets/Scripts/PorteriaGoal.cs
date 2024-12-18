@@ -21,7 +21,12 @@ public class PorteriaGoal : MonoBehaviour
 
             GameManager.instance.SetIndexPuntuacion((int) playerIndex, currentScore+1);
 
+
+            ADManager.instance.ShowAd();
+
+
         }
+
     }
 
 
