@@ -11,6 +11,7 @@ public class PalaMovement : MonoBehaviour
     public float speed;
     private Rigidbody2D rb;
     private float y;
+    private Camera _cam;
     
     
     
@@ -20,16 +21,18 @@ public class PalaMovement : MonoBehaviour
     {
        
         rb = GetComponent<Rigidbody2D>();    
+        _cam = Camera.main;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-       /* 
+       /*
         if (PalaIzquierda)
         {
             y = Input.GetAxisRaw("Vertical");
+
         }
 
         else
@@ -47,7 +50,9 @@ public class PalaMovement : MonoBehaviour
             if(touch.phase == TouchPhase.Moved)
             {
                 //touch.position
-                transform.position = new Vector3(transform.position.x, touch.position.y, transform.position.z);
+                Vector2 screenCoords = touch.position;
+                Vector3 worldCoords = _cam.ScreenToWorldPoint(screenCoords);
+                transform.position = new Vector3(transform.position.x, worldCoords.y, transform.position.z);
             }
             else if(touch.phase == TouchPhase.Ended){
 
