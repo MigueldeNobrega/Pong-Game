@@ -874,7 +874,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -894,10 +900,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: c0584a3b-b814-4184-831e-bc710b41401a
+  cloudProjectId: d785043e-30f9-42f4-9c54-03c6e0bd6fe6
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Proyecto_Pong
+  projectName: PongGame
   organizationId: unity_2c920f7fa5c72757f6eb
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
