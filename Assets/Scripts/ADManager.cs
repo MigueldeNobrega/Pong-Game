@@ -8,7 +8,8 @@ public class ADManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityA
 
     public static ADManager instance;
     public string androidID, appleID;
-    public bool testMode = true;
+    public bool testMode = true;//Poner en false para ver los anuncios realess con cookies
+
 
     public void OnInitializationComplete()
     {
