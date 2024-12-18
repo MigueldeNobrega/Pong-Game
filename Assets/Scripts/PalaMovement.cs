@@ -28,7 +28,11 @@ public class PalaMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       /*
+
+#if UNITY_STANDALONE || UNITY_EDITOR
+
+
+        //Para PC
         if (PalaIzquierda)
         {
             y = Input.GetAxisRaw("Vertical");
@@ -42,7 +46,9 @@ public class PalaMovement : MonoBehaviour
         
         
         transform.Translate(new Vector2(0, y) * speed * Time.deltaTime);
-       */
+
+#elif UNITY_ANDROID || UNITY_IOS 
+
 
         //Para MOVIL:
         foreach(Touch touch in Input.touches)
@@ -60,6 +66,13 @@ public class PalaMovement : MonoBehaviour
 
             }
         }
+
+
+
+#endif
+
+
+
     }
 
     private void FixedUpdate()
